@@ -162,6 +162,9 @@ function SidebarContent({
 function DashboardLayout() {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    return typeof window !== 'undefined' ? window.innerWidth < 768 : false;
+  });
   const [healthStatus, setHealthStatus] = useState(null);
   const [backendOnline, setBackendOnline] = useState(false);
   const location = useLocation();
@@ -173,12 +176,15 @@ function DashboardLayout() {
     { name: 'System Health', path: '/system-health', icon: Server },
   ];
 
-  // Track window resizing for tablet auto-collapse
+  // Track window resizing for tablet auto-collapse and mobile check
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      
+      if (width >= 768 && width < 1024) {
         setCollapsed(true);
-      } else if (window.innerWidth >= 1024) {
+      } else if (width >= 1024) {
         setCollapsed(false);
       }
     };
@@ -213,26 +219,28 @@ function DashboardLayout() {
   return (
     <div className="flex h-screen overflow-hidden bg-background">
       {/* 1. Desktop Sidebar Navigation (Only visible on md and up) */}
-      <motion.div 
-        animate={{ width: collapsed ? '72px' : '260px' }}
-        transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-        className="hidden md:flex flex-col flex-shrink-0 h-full border-r border-border bg-panel/75 backdrop-blur-md text-muted select-none relative"
-      >
-        <SidebarContent 
-          isMobileVersion={false}
-          collapsed={collapsed}
-          setCollapsed={setCollapsed}
-          setMobileOpen={setMobileOpen}
-          healthStatus={healthStatus}
-          backendOnline={backendOnline}
-          navItems={navItems}
-          location={location}
-        />
-      </motion.div>
+      {!isMobile && (
+        <motion.div 
+          animate={{ width: collapsed ? '72px' : '260px' }}
+          transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+          className="hidden md:flex flex-col flex-shrink-0 h-full border-r border-border bg-panel/75 backdrop-blur-md text-muted select-none relative"
+        >
+          <SidebarContent 
+            isMobileVersion={false}
+            collapsed={collapsed}
+            setCollapsed={setCollapsed}
+            setMobileOpen={setMobileOpen}
+            healthStatus={healthStatus}
+            backendOnline={backendOnline}
+            navItems={navItems}
+            location={location}
+          />
+        </motion.div>
+      )}
 
       {/* 2. Mobile Drawer Navigation Overlay (Only visible on screens below md) */}
       <AnimatePresence>
-        {mobileOpen && (
+        {isMobile && mobileOpen && (
           <>
             {/* Backdrop */}
             <motion.div
@@ -270,13 +278,15 @@ function DashboardLayout() {
         {/* Top Header */}
         <header className="flex flex-col sm:flex-row sm:items-center justify-between min-h-[4rem] py-3 px-4 sm:px-6 border-b border-border bg-panel/75 backdrop-blur-md z-10 gap-3">
           <div className="flex items-center gap-3">
-            <button 
-              onClick={() => setMobileOpen(true)}
-              className="flex md:hidden items-center justify-center w-11 h-11 rounded border border-border bg-card text-muted hover:text-text hover:border-primary/45 transition-colors cursor-pointer"
-              aria-label="Open sidebar"
-            >
-              <Menu size={20} />
-            </button>
+            {isMobile && (
+              <button 
+                onClick={() => setMobileOpen(true)}
+                className="flex md:hidden items-center justify-center w-11 h-11 rounded border border-border bg-card text-muted hover:text-text hover:border-primary/45 transition-colors cursor-pointer"
+                aria-label="Open sidebar"
+              >
+                <Menu size={20} />
+              </button>
+            )}
             <div className="flex items-baseline gap-2 flex-wrap">
               <h1 className="font-poppins font-semibold text-base sm:text-lg text-text tracking-wide">
                 {navItems.find(item => item.path === location.pathname)?.name || 'Platform'}
