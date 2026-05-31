@@ -1,0 +1,107 @@
+{
+    "total_images": 4,
+    "total_videos": 10,
+    "total_workers": 26,
+    "total_violations": 35,
+    "total_hazards": 25,
+    "history": [
+        {
+            "timestamp": "2026-05-31 09:17:52",
+            "type": "VIDEO",
+            "workers": 3,
+            "violations": 3,
+            "hazards": 2
+        },
+        {
+            "timestamp": "2026-05-31 09:16:04",
+            "type": "VIDEO",
+            "workers": 4,
+            "violations": 3,
+            "hazards": 1
+        },
+        {
+            "timestamp": "2026-05-31 08:49:29",
+            "type": "VIDEO",
+            "workers": 3,
+            "violations": 3,
+            "hazards": 2
+        },
+        {
+            "timestamp": "2026-05-31 08:04:07",
+            "type": "VIDEO",
+            "workers": 3,
+            "violations": 3,
+            "hazards": 2
+        },
+        {
+            "timestamp": "2026-05-31 07:44:34",
+            "type": "VIDEO",
+            "workers": 3,
+            "violations": 3,
+            "hazards": 2
+        },
+        {
+            "timestamp": "2026-05-31 07:42:20",
+            "type": "VIDEO",
+            "workers": 0,
+            "violations": 0,
+            "hazards": 1
+        },
+        {
+            "timestamp": "2026-05-31 07:40:24",
+            "type": "VIDEO",
+            "workers": 3,
+            "violations": 3,
+            "hazards": 2
+        },
+        {
+            "timestamp": "2026-05-31 07:38:05",
+            "type": "IMAGE",
+            "workers": 1,
+            "violations": 3,
+            "hazards": 1
+        },
+        {
+            "timestamp": "2026-05-30 15:45:21",
+            "type": "VIDEO",
+            "workers": 1,
+            "violations": 3,
+            "hazards": 2
+        },
+        {
+            "timestamp": "2026-05-30 15:43:02",
+            "type": "VIDEO",
+            "workers": 0,
+            "violations": 0,
+            "hazards": 2
+        },
+        {
+            "timestamp": "2026-05-30 15:40:34",
+            "type": "IMAGE",
+            "workers": 1,
+            "violations": 3,
+            "hazards": 2
+        },
+        {
+            "timestamp": "2026-05-30 14:48:13",
+            "type": "VIDEO",
+            "workers": 3,
+            "violations": 5,
+            "hazards": 2
+        },
+        {
+            "timestamp": "2026-05-30 14:21:10",
+            "type": "IMAGE",
+            "workers": 1,
+            "violations": 3,
+            "hazards": 2
+        },
+        {
+            "timestamp": "2026-05-30 14:20:30",
+            "type": "IMAGE",
+            "workers": 0,
+            "violations": 0,
+            "hazards": 2
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+path: D:/zentrix/dataset 
+train: images/train    
+val: images/val        
+test: images/test       
+
+nc: 11
+names:
+  0: conveyor
+  1: forklift
+  2: hazard_zone
+  3: helmet
+  4: machine_hazard
+  5: mask
+  6: overhead_hazard
+  7: safety_vest
+  8: shield
+  9: welding_hazard
+  10: worker

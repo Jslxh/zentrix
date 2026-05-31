@@ -1,0 +1,11 @@
+conveyor
+forklift
+hazard_zone
+helmet
+machine_hazard
+mask
+overhead_hazard
+safety_vest
+shield
+welding_hazard
+worker

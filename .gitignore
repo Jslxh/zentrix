@@ -1,0 +1,77 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Environment Variables
+.env
+.env.*
+
+# =========================
+# Logs
+# =========================
+*.log
+build_log.txt
+
+# =========================
+# Node / React
+# =========================
+node_modules/
+dist/
+build/
+frontend/node_modules/
+frontend/dist/
+
+# =========================
+# Dataset (Training Data)
+# =========================
+dataset/images/
+dataset/labels/
+
+# =========================
+# Generated Files
+# =========================
+static/uploads/
+static/processed/
+
+# Videos
+videos/
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# =========================
+# IDE Files
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+
+# =========================
+# Extracted frames
+extracted_frames/
+
+# Generated outputs
+static/uploads/
+static/processed/
+
+# Videos
+videos/

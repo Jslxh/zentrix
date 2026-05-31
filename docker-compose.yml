@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: zentrix-backend
+    container_name: zentrix-backend-container
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./static:/app/static
+      - ./model:/app/model
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: zentrix-frontend
+    container_name: zentrix-frontend-container
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

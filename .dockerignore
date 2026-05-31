@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Local data caches and outputs
+static/uploads/*
+static/processed/*
+extracted_frames/
+dataset.zip
+dataset/
+runs/
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
