@@ -403,7 +403,7 @@ function VideoTabKey() {
               <span className="text-xs font-semibold text-text">Drag and drop file or click to browse</span>
               <span className="text-[10px] text-muted mt-1 font-mono">Supports MP4, AVI, MOV (Max 100MB)</span>
             </div>
-
+            {videoFile && (
               <motion.div 
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}

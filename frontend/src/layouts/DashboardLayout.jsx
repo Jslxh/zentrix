@@ -307,20 +307,29 @@ function DashboardLayout() {
         </header>
 
         {/* Content Viewport */}
-        <main className="flex-1 p-4 sm:p-6 overflow-y-auto bg-transparent">
-          <div className="max-w-7xl mx-auto">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={location.pathname}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.22, ease: "easeOut" }}
-                className="space-y-6"
-              >
-                <Outlet />
-              </motion.div>
-            </AnimatePresence>
+        <main className="flex-1 p-4 sm:p-6 overflow-y-auto bg-transparent flex flex-col">
+          <div className="max-w-7xl w-full mx-auto flex-1 flex flex-col justify-between">
+            <div className="flex-1 pb-6">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={location.pathname}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.22, ease: "easeOut" }}
+                  className="space-y-6"
+                >
+                  <Outlet />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            
+            {/* Footer */}
+            <footer className="w-full border-t border-border py-4 sm:py-5 mt-auto flex justify-center items-center">
+              <p className="text-xs font-poppins text-muted tracking-wider text-center select-none">
+                Zentrix AI v1.0 <span className="mx-2 text-border/80">|</span> © 2026 Jslxh
+              </p>
+            </footer>
           </div>
         </main>
       </div>
