@@ -49,39 +49,39 @@ function LiveMonitoring() {
         </div>
 
         {/* Tab buttons */}
-        <div className="flex bg-card p-1 rounded-lg border border-border">
+        <div className="grid grid-cols-3 sm:flex bg-card p-1 rounded-lg border border-border w-full sm:w-auto">
           <button
             onClick={() => setActiveTab('image')}
-            className={`flex items-center gap-2 px-4 py-1.5 rounded text-xs font-poppins font-semibold transition-all cursor-pointer ${
+            className={`flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2 rounded text-[10px] sm:text-xs font-poppins font-semibold transition-all cursor-pointer ${
               activeTab === 'image' 
                 ? 'bg-primary text-background' 
                 : 'text-muted hover:text-text'
             }`}
           >
-            <ImageIcon size={14} />
-            Image Analytics
+            <ImageIcon size={14} className="flex-shrink-0" />
+            <span className="truncate">Image</span>
           </button>
           <button
             onClick={() => setActiveTab('video')}
-            className={`flex items-center gap-2 px-4 py-1.5 rounded text-xs font-poppins font-semibold transition-all cursor-pointer ${
+            className={`flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2 rounded text-[10px] sm:text-xs font-poppins font-semibold transition-all cursor-pointer ${
               activeTab === 'video' 
                 ? 'bg-primary text-background' 
                 : 'text-muted hover:text-text'
             }`}
           >
-            <VideoIcon size={14} />
-            Video Analytics
+            <VideoIcon size={14} className="flex-shrink-0" />
+            <span className="truncate">Video</span>
           </button>
           <button
             onClick={() => setActiveTab('webcam')}
-            className={`flex items-center gap-2 px-4 py-1.5 rounded text-xs font-poppins font-semibold transition-all cursor-pointer ${
+            className={`flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2 rounded text-[10px] sm:text-xs font-poppins font-semibold transition-all cursor-pointer ${
               activeTab === 'webcam' 
                 ? 'bg-primary text-background' 
                 : 'text-muted hover:text-text'
             }`}
           >
-            <PlayCircle size={14} />
-            Live Camera Feed
+            <PlayCircle size={14} className="flex-shrink-0" />
+            <span className="truncate">Live Feed</span>
           </button>
         </div>
       </div>
@@ -171,7 +171,7 @@ function ImageTabKey() {
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-4 bg-background border border-border p-2 rounded flex items-center gap-3"
               >
-                <img src={previewUrl} alt="Preview" className="w-12 h-12 object-cover rounded border border-border" />
+                <img src={previewUrl} alt="Preview" className="w-12 h-12 object-cover rounded border border-border flex-shrink-0" />
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-bold text-text truncate">{imageFile.name}</p>
                   <p className="text-[10px] text-muted font-mono">{(imageFile.size / (1024 * 1024)).toFixed(2)} MB</p>
@@ -404,13 +404,12 @@ function VideoTabKey() {
               <span className="text-[10px] text-muted mt-1 font-mono">Supports MP4, AVI, MOV (Max 100MB)</span>
             </div>
 
-            {previewUrl && (
               <motion.div 
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-4 bg-background border border-border p-2.5 rounded flex items-center gap-3"
               >
-                <VideoIcon size={24} className="text-primary animate-pulse" />
+                <VideoIcon size={24} className="text-primary animate-pulse flex-shrink-0" />
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-bold text-text truncate">{videoFile.name}</p>
                   <p className="text-[10px] text-muted font-mono">{(videoFile.size / (1024 * 1024)).toFixed(2)} MB</p>
